@@ -1,0 +1,112 @@
+/* styles.css */
+/* universal selector - Applies to whole document */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background: #bcceee;
+}
+
+
+#winner{
+    opacity: 0;
+    font-size: 10em;
+    text-align: center;
+    background-image: linear-gradient(to left, #2ecc71, #3498db, #9b59b6, #f39c12); 
+    background-size: 150%;
+    color: transparent;
+    -webkit-background-size: 150%; 
+    animation: animate 1s linear infinite;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+#lose{
+    opacity: 0;
+    font-size: 10em;
+    text-align: center;
+    background-image: linear-gradient(to left, #e74c3c, #c0392b); /* static red gradient */
+    background-size: 150%;
+    color: transparent;
+    -webkit-background-size: 150%;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+#tie{
+    opacity: 0;
+    font-size: 10em;
+    text-align: center;
+    background-image: linear-gradient(to left, #95a5a6, #bdc3c7, #7f8c8d); /* neutral gray gradient */
+    animation: animate 1s linear infinite;
+    background-size: 150%;
+    color: transparent;
+    -webkit-background-size: 150%;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+@keyframes animate{
+    0%{
+        background-position: 0 100%;
+    }
+    50%{
+        background-position: 100% 0%;
+    }
+    100%{
+        background-position: 0 100%;
+    }
+}
+
+#play-game {
+    display: flex;
+    margin: 20px auto 0 auto;
+    font-size: 1.2em;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #3498db;
+    color: black;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+}
+
+#play-again-btn {
+    display: none;
+    margin: 20px auto 0 auto;
+    font-size: 1.2em;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #3498db;
+    color: black;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    justify-content: center;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 767px)
+{  
+    #winner{
+        font-size: 3em;
+    }
+
+    #lose{
+        font-size: 3em;
+    }
+
+    #tie{
+        font-size: 3em;
+    }
+
+    #play-game{
+        font-size: 1em;
+        padding: 10px 20px;
+    }
+
+    #play-again-btn{
+        font-size: 1em;
+        padding: 10px 20px;
+    }
+}
