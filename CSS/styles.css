@@ -7,7 +7,7 @@
     background: #bcceee;
 }
 
-
+/* Animation for winning message */
 #winner{
     opacity: 0;
     font-size: 10em;
@@ -21,6 +21,7 @@
     -webkit-background-clip: text;
 }
 
+/* Animation for losing message */
 #lose{
     opacity: 0;
     font-size: 10em;
@@ -33,6 +34,7 @@
     -webkit-background-clip: text;
 }
 
+/* Animation for tie message */
 #tie{
     opacity: 0;
     font-size: 10em;
@@ -46,33 +48,8 @@
     -webkit-background-clip: text;
 }
 
-@keyframes animate{
-    0%{
-        background-position: 0 100%;
-    }
-    50%{
-        background-position: 100% 0%;
-    }
-    100%{
-        background-position: 0 100%;
-    }
-}
-
-#play-game {
-    display: flex;
-    margin: 20px auto 0 auto;
-    font-size: 1.2em;
-    padding: 10px 20px;
-    cursor: pointer;
-    background-color: #3498db;
-    color: black;
-    font-weight: bold;
-    border: none;
-    border-radius: 5px;
-}
-
-#play-again-btn {
-    display: none;
+/* Button styles*/
+#play-game, #play-again-btn {
     margin: 20px auto 0 auto;
     font-size: 1.2em;
     padding: 10px 20px;
@@ -83,30 +60,64 @@
     border: none;
     border-radius: 5px;
     justify-content: center;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
+
+/* Play again button hidden */
+#play-again-btn{
+    display: none;
+}
+
+/* Hover effect */
+#play-game:hover,
+#play-again-btn:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
+
+/* Active/click effect */
+#play-game:active,
+#play-again-btn:active {
+    transform: scale(0.95);
+}
+
 
 /* Responsive Design */
 @media screen and (max-width: 767px)
 {  
-    #winner{
+    .results{
         font-size: 3em;
+        text-align: center;
     }
 
-    #lose{
-        font-size: 3em;
-    }
-
-    #tie{
-        font-size: 3em;
-    }
-
-    #play-game{
+    #play-game,
+    #play-again-btn {
         font-size: 1em;
-        padding: 10px 20px;
+        padding: 8px 16px;
+        width: 80%; 
     }
 
-    #play-again-btn{
-        font-size: 1em;
-        padding: 10px 20px;
+}
+
+/* 
+@keyframes animate:
+Moves diagonally the background simulating a glow move. 
+Is used with background-clip: to animate the text with color gradient.
+
+- 0% and 100%: background moves to bottom-left corner (0 100%).
+- 50%: background moves to right-top corner (100% 0%).
+
+*/
+
+@keyframes animate{
+    0%{
+        background-position: 0 100%;
+    }
+    50%{
+        background-position: 100% 0%;
+    }
+    100%{
+        background-position: 0 100%;
     }
 }
