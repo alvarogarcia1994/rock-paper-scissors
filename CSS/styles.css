@@ -50,6 +50,7 @@
 
 /* Button styles*/
 #play-game, #play-again-btn {
+    display: block;
     margin: 20px auto 0 auto;
     font-size: 1.2em;
     padding: 10px 20px;
