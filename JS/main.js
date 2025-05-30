@@ -84,6 +84,7 @@ function playGame(){
     }
 }
 
+//Function to show a message if the player has won, lost or a tie in the game
 function win_lose(result){
 
     //Hide the results by default
@@ -104,6 +105,7 @@ function win_lose(result){
     document.getElementById("play-again-btn").style.display = "inline-block";
 }
 
+//Function to start a new game
 function newGame(){
     // Clear console logs
     console.clear();

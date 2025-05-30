@@ -10,7 +10,7 @@
 /* Animation for winning message */
 #winner{
     opacity: 0;
-    font-size: 10em;
+    font-size: 3em;
     text-align: center;
     background-image: linear-gradient(to left, #2ecc71, #3498db, #9b59b6, #f39c12); 
     background-size: 150%;
@@ -24,7 +24,7 @@
 /* Animation for losing message */
 #lose{
     opacity: 0;
-    font-size: 10em;
+    font-size: 3em;
     text-align: center;
     background-image: linear-gradient(to left, #e74c3c, #c0392b); /* static red gradient */
     background-size: 150%;
@@ -37,7 +37,7 @@
 /* Animation for tie message */
 #tie{
     opacity: 0;
-    font-size: 10em;
+    font-size: 3em;
     text-align: center;
     background-image: linear-gradient(to left, #95a5a6, #bdc3c7, #7f8c8d); /* neutral gray gradient */
     animation: animate 1s linear infinite;
@@ -48,57 +48,62 @@
     -webkit-background-clip: text;
 }
 
-/* Button styles*/
+/* Button container */
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Button styles */
 #play-game, #play-again-btn {
-    display: block;
-    margin: 20px auto 0 auto;
-    font-size: 1.2em;
-    padding: 10px 20px;
-    cursor: pointer;
-    background-color: #3498db;
-    color: black;
-    font-weight: bold;
-    border: none;
-    border-radius: 5px;
-    justify-content: center;
-    text-align: center;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+  font-size: 1.2em;
+  padding: 10px 20px;
+  margin: 10px 0;
+  cursor: pointer;
+  background-color: #3498db;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  width: 200px;
 }
 
-/* Play again button hidden */
-#play-again-btn{
-    display: none;
+/* Hover and active */
+#play-game:hover, #play-again-btn:hover {
+  background-color: #2980b9;
+  transform: scale(1.05);
 }
 
-/* Hover effect */
-#play-game:hover,
-#play-again-btn:hover {
-    background-color: #2980b9;
-    transform: scale(1.05);
+#play-game:active, #play-again-btn:active {
+  transform: scale(0.95);
 }
 
-/* Active/click effect */
-#play-game:active,
-#play-again-btn:active {
-    transform: scale(0.95);
+/* Button "play again" hidden by default */
+#play-again-btn {
+  display: none;
 }
 
+/* Result container */
+.results {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
 
-/* Responsive Design */
-@media screen and (max-width: 767px)
-{  
-    .results{
-        font-size: 3em;
-        text-align: center;
-    }
+/* Responsive design */
+@media screen and (max-width: 767px) {
+  .results {
+    font-size: 12px;
+  }
 
-    #play-game,
-    #play-again-btn {
-        font-size: 1em;
-        padding: 8px 16px;
-        width: 80%; 
-    }
-
+  #play-game, #play-again-btn {
+    font-size: 1em;
+    padding: 8px 16px;
+    width: 80%;
+  }
 }
 
 /* 
