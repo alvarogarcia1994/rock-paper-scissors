@@ -1,10 +1,25 @@
-/* styles.css */
-/* universal selector - Applies to whole document */
+/* Universal selector */
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    background: #bcceee;
+    background: var(--purple-900);
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Variables */
+:root {
+  --transparent: oklch(0 0 0 / 0%);
+  --purple-100: oklch(0.86 0.08 280);
+  --purple-200: oklch(0.82 0.06 280);
+  --purple-300: oklch(0.71 0.12 280);
+  --purple-400: oklch(0.61 0.18 280);
+  --purple-500: oklch(0.5 0.21 280);
+  --purple-600: oklch(0.42 0.18 280);
+  --purple-800: oklch(0.25 0.15 280);
+  --purple-900: oklch(0.13 0.06 280);
+  --purple-900: oklch(0.13 0.06 280);
 }
 
 /* Animation for winning message */
@@ -34,76 +49,161 @@
     -webkit-background-clip: text;
 }
 
-/* Animation for tie message */
-#tie{
-    opacity: 0;
-    font-size: 3em;
+
+/* To center everything in game */
+.game{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Title of the game */
+.title{
+    top: 0;
+    font-size: 4rem;
+    z-index: 2;
+}
+
+/* Score Board */
+.score{
+    margin-top: 30px;
+    display: flex;
+    width: 30vw;
+    justify-content: space-evenly;
+    top: 70px;
+    z-index: 1;
+}
+
+/* Score styles */
+.p-count,.c-count{
     text-align: center;
-    background-image: linear-gradient(to left, #95a5a6, #bdc3c7, #7f8c8d); /* neutral gray gradient */
-    animation: animate 1s linear infinite;
-    background-size: 150%;
-    color: transparent;
-    -webkit-background-size: 150%;
-    background-clip: text;
-    -webkit-background-clip: text;
+    font-size: 1.5rem;
+    margin-top: 1rem;
 }
 
-/* Button container */
-.button-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* displaying three buttons in one line */
+.options{
+    display: flex;
+    width: 50vw;
+    justify-content: space-evenly;
+    margin-top: 2rem;
 }
 
-/* Button styles */
-#play-game, #play-again-btn {
-  font-size: 1.2em;
-  padding: 10px 20px;
-  margin: 10px 0;
-  cursor: pointer;
-  background-color: #3498db;
-  color: white;
-  font-weight: bold;
-  border: none;
-  border-radius: 5px;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  width: 200px;
+/* Styling on all three buttons */
+.rock, .paper, .scissors {
+    padding: 0.8rem;
+    width: 100px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background-color: #111; /* dark background to make glow stand out */
+    box-shadow: 0 0 10px rgba(0,255,255,0.5);
+    transition: 0.3s ease;
 }
 
-/* Hover and active */
-#play-game:hover, #play-again-btn:hover {
-  background-color: #2980b9;
-  transform: scale(1.05);
+/* Image styles for each button  (rock, paper and scissors) */
+.rock img, .paper img, .scissors img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    background-color: transparent;
 }
 
-#play-game:active, #play-again-btn:active {
-  transform: scale(0.95);
+
+.rock:hover, .paper:hover, .scissors:hover {
+    box-shadow:
+        0 0 10px rgba(0,255,255,0.8),
+        0 0 20px rgba(0,255,255,0.6),
+        0 0 30px rgba(0,255,255,0.4);
+    transform: scale(1.05);
 }
 
-/* Button "play again" hidden by default */
-#play-again-btn {
-  display: none;
+.rock {
+    background-color: #111;
+    box-shadow: 0 0 10px rgba(255,0,0,0.5);
 }
 
-/* Result container */
-.results {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-  text-align: center;
+.rock:hover {
+    box-shadow: 0 0 15px rgba(255,0,0,0.9), 0 0 25px rgba(255,0,0,0.6);
 }
 
-/* Responsive design */
-@media screen and (max-width: 767px) {
-  .results {
-    font-size: 12px;
-  }
+.paper {
+    background-color: #111;
+    box-shadow: 0 0 10px rgba(0,255,0,0.5);
+}
 
-  #play-game, #play-again-btn {
-    font-size: 1em;
-    padding: 8px 16px;
-    width: 80%;
-  }
+.paper:hover {
+    box-shadow: 0 0 15px rgba(0,255,0,0.9), 0 0 25px rgba(0,255,0,0.6);
+}
+
+.scissors {
+    background-color: #111;
+    box-shadow: 0 0 10px rgba(0,0,255,0.5);
+}
+
+.scissors:hover {
+    box-shadow: 0 0 15px rgba(0,0,255,0.9), 0 0 25px rgba(0,0,255,0.6);
+}
+
+.move{
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* Play Again button style */
+.playAgain {
+    display: none;
+    margin-top: 2rem;
+    position: relative;
+    z-index: 1;
+    background: var(--purple-900);
+    border: 3px solid;
+    border-color: var(--purple-400);
+    border-radius: 0.75rem;
+    color: var(--purple-300);
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+    transition: 250ms ease-in-out;
+    transition-property: all;
+}
+
+
+.playAgain:hover, 
+.playAgain:focus{
+    color: var(--purple-200);
+    background-color: var(--purple-800);
+    transform: scale(1.1);
+}
+
+.playAgain:after{
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    opacity: 0.6;
+    border-radius: inherit;
+    box-shadow: 0 0 1em 0.5em var(--purple-300);
+    transition: 250ms ease-in-out;
+    transition-property: opacity;
+}
+
+.playAgain:hover::after, 
+.playAgain:focus::after{
+    opacity: 0.6;
+}
+
+#result-message{
+    margin-top: 30px;
+}
+
+.result{
+    margin-top: 5px;
+    font-size: 1.2rem;
 }
 
 /* 

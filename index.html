@@ -7,24 +7,56 @@
         <link rel="stylesheet" href="CSS/styles.css">
     </head>
     <body>
-      <div class="results">
-        <div id="winner">
-          You win !!
+
+      <section class="game">
+
+        <div class="title">Rock Paper Scissors</div>
+        
+        <div class="score">  
+            <div class="playerScore">
+                <h2>Player</h2>
+                <p class="p-count">0</p>
+            </div>       
+            <div class="computerScore">
+                <h2>Computer</h2>
+                <p class="c-count">0</p>
+            </div>
+        </div>
+      
+        <div class="move">Choose your move</div>
+        
+        
+        <div class="options">
+            <button class="rock">
+              <img src="images/rock.png" width="80px" height="80px"/>
+            </button>
+            <button class="paper">
+              <img src="images/paper.png" width="80px" height="80px" />
+            </button>
+            <button class="scissors">
+              <img src="images/Scissors.png" width="80px" height="80px"/>
+            </button>    
         </div>
 
-        <div id="lose">
-          You lose !!
-        </div>
+        <div id="result-message">
 
-        <div id="tie">
-          It's a tie
-        </div>
+        </div> 
+        
+        <div class="result">
+          <div id="winner">
+            You win !!
+          </div>
 
-        <div class="button-container">
-          <button id="play-game" onclick="playGame()">Play</button>
-          <button id="play-again-btn" onclick="newGame()">Play again</button>
+          <div id="lose">
+            You lose. Better Luck Next Time
+          </div>
+
         </div>
-      </div>
-      <script src="JS/main.js"></script>
+        
+        <button class="playAgain">
+          Play Again
+        </button>
+
+      <script src="JS/rps.js"></script>
     </body>
 </html>
